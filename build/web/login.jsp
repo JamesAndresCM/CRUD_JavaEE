@@ -7,33 +7,58 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="bootstrap/css/styles.css" rel="stylesheet" type="text/css"/>
         <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <div class="container">
-    <center><h2>Login</h2><hr></center>
-    <center>
-        <form action="/appMensajes/ServletValidar" method="post">
-            <div class="control-group">
-            <table>
-                <tr>
-                    <td><h3>Usuario</h3></td><td><input type="text" name="user"></td>
-                </tr>
-                <tr>
-                    <td><h3>Contraseña</h3></td><td><input type="password" name="pass"></td>
-                </tr>
-            
-                <tr>
-                
-            </tr>
-            </table>
-                </br>
-                <center><input type="submit" class="btn btn-primary" value="Aceptar"></center>
-            </div>
-        </form>
-        <br><a href="frmUsuario.jsp">Registrarse</a>
-    </center>
-        </div>
-    </body>
+        </br>
+        </br>
+        <div class="container" style="width: 35%">
+    
+            <div class="row center">
+      
+                <div class="col-md-4 div-login main-color">
         
-</html>
+                    <legend class="center">Log in</legend>
+
+          
+                <form action="/appMensajes/ServletValidar" method="post">
+              
+            
+                    <div class="form-group">
+                
+                        <label class="col-md-4 control-label" for="textinput">Usuario</label>  
+                    
+                        <div class="col-md-4">
+                            <input id="textinput" name="user" type="text" placeholder="username" class="form-control input-md">
+                        </div>
+                    </div>
+               <!-- Password input-->
+        
+               <div class="form-group">
+        
+                   <label class="col-md-4 control-label" for="passwordinput">Password</label>
+            
+                   <div class="col-md-4">
+            
+                       <input id="passwordinput" name="pass" type="password" placeholder="*****" class="form-control input-md">
+           
+                   </div>
+        
+               </div>
+               
+                
+               <input type="submit" class="btn btn-primary center" value="Aceptar">
+               </br>
+                <a href="frmUsuario.jsp" method="get" class="btn btn-info center margin-btn" role="button">Registrarse</a>
+          </form>
+    </div>
+    </div>
+        </div>
+       
+        
+    
+            
+            
+      
+</body>

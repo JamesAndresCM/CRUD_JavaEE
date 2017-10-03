@@ -9,44 +9,26 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <link href="bootstrap/css/styles.css" rel="stylesheet" type="text/css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
     <body>
+        <%@include file="/template/nav_bar.jsp" %>  
+        <%@include file="/template/modal.html" %> 
         <%
         if (session.getAttribute("usuario") == null) {
             response.sendRedirect("login.jsp?error=1");
         } else {
-            out.print("<center><h2>Bienvenido " + session.getAttribute("nombre") + "</h2></center><hr>");
+        
             
-            out.print("<ul class='nav nav-tabs'>");
-            out.print("<li><a href='index.jsp'>Inicio</a></li>");
-            
-            out.print("<li><a href='nuevo.jsp'>Agregar Mensaje</a></li>");
-            
-            
-            if (session.getAttribute("usuario") != null && session.getAttribute("tipo").toString().equals("1")) {
-            out.print("<li><a href='MostrarMensajes.jsp'>Mostrar Mensajes</a></li>");}
-            
-            if (session.getAttribute("usuario") != null && session.getAttribute("tipo").toString().equals("1")) {
-            out.print("<li><a href='BuscarMensajes.jsp'>Buscar Mensajes por Usuario</a></li>");}
-            
-            
-            if (session.getAttribute("usuario") != null && session.getAttribute("tipo").toString().equals("2")) {
-                out.print("<li><a href='mostrarUsuarios.jsp'>Administrar Usuarios</a></li>");}
-            
-            if (session.getAttribute("usuario") != null && session.getAttribute("tipo").toString().equals("2")) {
-            out.print("<li><a href='frmUsuario.jsp'>Agregar Usuario</a></li>");}
-            
-            if (session.getAttribute("usuario") != null) {
-            out.print("<li><a href='/appMensajes/ServletLogout'>Salir</a></li>");}
-            out.print("</ul>");
             BaseDato bd = new BaseDato();
             
             List<Mensaje> lst = bd.getMensajes(Integer.parseInt(session.getAttribute("id").toString()));
             
             out.print("<center><h2>Mis mensajes</h2></center>");
-            out.print("<center><table border='1' class='table table-striped'>");
+            out.print("<center><table class='table table-striped' style='width: 80%;'>");
             
             out.print("<tr><th>Fecha</th><th>Mensaje</th></tr>");
             for (Mensaje m: lst) {
@@ -82,4 +64,6 @@
         %> 
     
     </body>
+    
+ 
 </html>

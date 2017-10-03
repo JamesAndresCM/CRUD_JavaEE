@@ -20,7 +20,7 @@
         } else {
             out.print("<center><h2>Mostrando Mensajes</h2></center><hr>");
             
-            out.print("<center><table border='1' class='table table-striped'>");
+            out.print("<center><table class='table table-striped' style='width: 80%;>");
             out.print("<tr><th>User</th><th>Mensaje</th><th>Fecha</th></tr>");
             BaseDato bd = new BaseDato();
             

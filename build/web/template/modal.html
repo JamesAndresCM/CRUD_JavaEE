@@ -1,0 +1,25 @@
+<div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document" style="width: 400px">
+            <div class="modal-content" >
+			<div class="modal-header right">
+				<button data-dismiss="modal" class="btn-sm btn btn-danger" aria-label="Close">
+					<span aria-hidden="true">Close</span>
+                                </button>
+			</div>
+                    <div class="modal-body">
+			<form action="/appMensajes/ServletGuardar" method="post">
+                        <div class="form-group">
+                             <legend class="center">Crear Mensaje</legend>
+                        <div class="center">
+                            <textarea required class="form-control" name="mensaje" style="width: 350px; height: 85px;"></textarea>
+                        </div>
+                        </div>
+                        </br>
+                        <div class="center">
+                        <input type="submit" class="btn btn-primary" value="Enviar">
+                        </div>
+                        </form>
+                    </div>
+		</div>
+	</div>
+</div>
