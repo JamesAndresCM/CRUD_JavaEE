@@ -55,7 +55,7 @@ public class BaseDato {
                 st = conex.createStatement();
                 ResultSet rs = st.executeQuery(String.format("SELECT * FROM mensajes WHERE id_mensaje=%d", id));
                 if (rs.next())
-                    m = new Mensaje(rs.getInt("id_mensaje"), rs.getInt("id_user"), rs.getTimestamp("fecha"), rs.getString("mensaje"));
+                    m = new Mensaje(rs.getInt("id_mensaje"), rs.getInt("id_user"), rs.getTimestamp("fecha"), rs.getString("mensaje"),rs.getString("user"));
                 st.close();
             } catch (SQLException ex) {
             }
@@ -71,9 +71,9 @@ public class BaseDato {
         if (conex != null) {
             try {
                 st = conex.createStatement();
-                ResultSet rs = st.executeQuery(String.format("SELECT * FROM mensajes WHERE id_user = %d ORDER BY fecha DESC", id));
+                ResultSet rs = st.executeQuery(String.format("select * from mensajes inner join usuario on mensajes.id_user=usuario.id_user where usuario.id_user=%d", id));
                 while (rs.next())
-                    mensajes.add(new Mensaje(rs.getInt("id_mensaje"), rs.getInt("id_user"), rs.getTimestamp("fecha"), rs.getString("mensaje")));
+                    mensajes.add(new Mensaje(rs.getInt("id_mensaje"), rs.getInt("id_user"), rs.getTimestamp("fecha"), rs.getString("mensaje"), rs.getString("user")));
                 st.close();
             } catch (SQLException ex) {
             }
@@ -83,16 +83,16 @@ public class BaseDato {
     
     
     
-     public List<Mensaje> getAllMensajes (int id) {
+     public List<Mensaje> getAllMensajes() {
         List<Mensaje> mensajes = new ArrayList<>();
         Statement st;
         
         if (conex != null) {
             try {
                 st = conex.createStatement();
-                ResultSet rs = st.executeQuery(String.format("SELECT * FROM mensajes ORDER BY fecha DESC", id));
+                ResultSet rs = st.executeQuery(String.format("select * from mensajes inner join usuario on mensajes.id_user=usuario.id_user ORDER BY fecha DESC"));
                 while (rs.next())
-                    mensajes.add(new Mensaje(rs.getInt("id_mensaje"), rs.getInt("id_user"), rs.getTimestamp("fecha"), rs.getString("mensaje")));
+                    mensajes.add(new Mensaje(rs.getInt("id_mensaje"), rs.getInt("id_user"), rs.getTimestamp("fecha"), rs.getString("mensaje"),rs.getString("user")));
                 st.close();
             } catch (SQLException ex) {
             }
@@ -116,6 +116,35 @@ public class BaseDato {
         }
         
         return u;
+    }
+    
+    public void deleteUsuario (int id_user) {
+        
+        if (conex != null) {
+            try {
+                
+                Statement st = conex.createStatement();
+                st.executeUpdate(String.format("DELETE FROM mensajes WHERE id_user=%d", id_user));
+                st.executeUpdate(String.format("DELETE FROM usuario WHERE id_user=%d", id_user));
+                //st.executeUpdate(String.format("delete mensajes, usuario from mensajes inner join usuario where mensajes.id_user=usuario.id_user and usuario.id_user=%d", id_user));
+                st.close();
+            } catch (SQLException ex) {
+            }
+        }
+    }
+    
+    
+    public void deleteMensaje (int id_mensaje) {
+        
+        if (conex != null) {
+            try {
+                
+                Statement st = conex.createStatement();
+                st.executeUpdate(String.format("DELETE FROM mensajes WHERE id_mensaje=%d", id_mensaje));
+                st.close();
+            } catch (SQLException ex) {
+            }
+        }
     }
     
     public Usuario getUsuario (String user, String pass) {
