@@ -13,20 +13,22 @@ public class Mensaje {
     private int id_user;
     private Timestamp fecha;
     private String mensaje;
+    private String user;
 
     public Mensaje(int id_user, String mensaje) {
         this.id_user = id_user;
         this.mensaje = mensaje;
     }
 
-    public Mensaje(int id_mensaje, int id_user, Timestamp fecha, String mensaje) {
+    public Mensaje(int id_mensaje, int id_user, Timestamp fecha, String mensaje, String user) {
         this.id_mensaje = id_mensaje;
         this.id_user = id_user;
         this.fecha = fecha;
         this.mensaje = mensaje;
+        this.user = user;
     }
-    
 
+    
     public int getId_mensaje() {
         return id_mensaje;
     }
@@ -58,9 +60,13 @@ public class Mensaje {
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
     }
-    
 
-    
-    
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
     
 }
