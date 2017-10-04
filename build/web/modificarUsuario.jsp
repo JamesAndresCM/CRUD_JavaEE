@@ -7,10 +7,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-        
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link href="bootstrap/css/styles.css" rel="stylesheet" type="text/css"/>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
         
     </head>
     <body>
@@ -36,26 +36,26 @@
                 <td><input name="id_user" type="hidden" value="<%= u.getId_user() %>"></td>
                 <tr>
                     <td>Usuario:</td>
-                    <td><input type="text" name="usuario" value="<%= u.getUser() %>"></td>
+                    <td><input type="text" class="form-control margin-text" name="usuario" value="<%= u.getUser() %>"></td>
                 </tr>
                 <tr>
                     <td>Clave:</td>
-                    <td><input type="password" name="clave" value="<%= u.getPass() %>"></td>
+                    <td><input type="password" class="form-control margin-text" name="clave" value="<%= u.getPass() %>"></td>
                 </tr>
                 <tr>
                     <td>Nombre</td>
-                    <td><input type="text" name="nombre" value="<%= u.getNombre() %>"></td>
+                    <td><input type="text" class="form-control margin-text" name="nombre" value="<%= u.getNombre() %>"></td>
                 </tr>
                 <tr>
                     <td>Email:</td>
-                    <td><input type="text" name="email" value="<%= u.getEmail() %>"></td>
+                    <td><input type="text" class="form-control margin-text" name="email" value="<%= u.getEmail() %>"></td>
                 </tr>
                 <tr>
                     
                 <tr>
                     <td>Tipo: </td>
                     <td>
-                    <select name="tipo">
+                    <select name="tipo" class="form-control">
                     <option value="0">normal</option>
                     <option value="1">superuser</option>
                     <option value="2">Administrador</option>
@@ -65,13 +65,13 @@
                 
                     <!--<td><input type="text" name="tipo" value="<%= u.getTipo() %>"></td>!-->
                 </tr>
-                    <td colspan="2" align="center"><input type="submit" class="btn btn-primary" value="Enviar"></td>
+                    <td colspan="2" align="center"><input type="submit" class="btn btn-primary btn-acept" value="Enviar"></td>
                 </tr>
                 </table></center>
         </div>
         </form>
     </br>
-    <center><a href="mostrarUsuarios.jsp">Volver</a></center>
+    
         </div>
     </body>
 </html>
