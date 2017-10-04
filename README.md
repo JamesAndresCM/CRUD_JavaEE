@@ -1,7 +1,7 @@
 # CRUD_JavaEE
 
 # TL;DR
-No security, no frontend (basic versión functional), no validation, basic crud in java.
+No security, no frontend (basic versión functional), no validation.
 
 Configure user and pass db (src/java/stotomas/clases/BaseDato.java) line 20
 
