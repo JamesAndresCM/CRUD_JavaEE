@@ -5,6 +5,19 @@
   border-radius: 0.2rem;
 }
 
+
+.btn-acept{
+    
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+
+.margin-text{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    width: 200px;
+}
+
 .common_table{
   overflow-y: scroll;
   width: 350px;
